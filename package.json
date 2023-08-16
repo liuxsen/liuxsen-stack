@@ -13,7 +13,8 @@
     "build:pkg": "pnpm -r --filter=@fostars/* run build",
     "build:app": "pnpm -r --filter=@liuxsen/* run build",
     "build": "pnpm -r run build",
-    "lint": "pnpm -r run lint"
+    "lint": "pnpm -r run lint",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "axios": "^1.4.0",
@@ -22,6 +23,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.40.2",
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "bumpp": "^9.1.1",
     "eslint": "^8.47.0",
     "husky": "^8.0.3"
