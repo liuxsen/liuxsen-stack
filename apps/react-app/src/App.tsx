@@ -3,7 +3,8 @@ import './styles/common.less'
 const App = () => {
   return <div className='header'
 
-  >app</div>
+  >
+  </div>
 }
 
 export default App

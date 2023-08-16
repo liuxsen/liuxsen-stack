@@ -1,0 +1,14 @@
+{
+  "name": "cli-app-demo",
+  "version": "1.0.0",
+  "description": "",
+  "author": "liuxsen",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "liuxsen-cli": "liuxsen-cli"
+  },
+  "devDependencies": {
+    "cli-app": "workspace:*"
+  }
+}
