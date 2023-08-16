@@ -1,0 +1,36 @@
+{
+  "name": "@liuxxen/react-app",
+  "version": "1.0.0",
+  "description": "react-app",
+  "author": "liuxsen",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "eslint": "eslint --fix",
+    "lint": "npx lint-staged",
+    "stylelint": "npx stylelint --fix"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.18",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.4",
+    "less": "4.2.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.9"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npm run eslint"
+    ],
+    "src/**/*.{css,less}": [
+      "npm run stylelint"
+    ]
+  }
+}
