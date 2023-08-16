@@ -9,12 +9,12 @@
     "pnpm": ">=6.32.0"
   },
   "scripts": {
+    "postinstall": "husky install",
     "release": "bumpp package.json packages/**/package.json",
     "build:pkg": "pnpm -r --filter=@fostars/* run build",
     "build:app": "pnpm -r --filter=@liuxsen/* run build",
     "build": "pnpm -r run build",
-    "lint": "pnpm -r run lint",
-    "postinstall": "husky install"
+    "lint": "pnpm -r run lint"
   },
   "dependencies": {
     "axios": "^1.4.0",
