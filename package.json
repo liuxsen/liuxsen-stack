@@ -26,7 +26,13 @@
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "bumpp": "^9.1.1",
+    "cz-customizable": "^7.0.0",
     "eslint": "^8.47.0",
     "husky": "^8.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }
