@@ -28,7 +28,12 @@
     "bumpp": "^9.1.1",
     "cz-customizable": "^7.0.0",
     "eslint": "^8.47.0",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "stylelint": "^15.10.2",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-recess-order": "^4.3.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-order": "^6.0.3"
   },
   "config": {
     "commitizen": {

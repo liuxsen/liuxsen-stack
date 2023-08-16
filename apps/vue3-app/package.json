@@ -11,7 +11,8 @@
     "build": "vue-tsc && vue build",
     "preview": "vite preview",
     "eslint": "eslint --fix",
-    "lint": "npx lint-staged"
+    "lint": "npx lint-staged",
+    "stylelint": "npx stylelint --fix"
   },
   "dependencies": {
     "vue": "3.3.4"
@@ -25,6 +26,9 @@
   "lint-staged": {
     "src/**/*.{ts,tsx,vue}": [
       "npm run eslint"
+    ],
+    "src/**/*.{css,less,vue}": [
+      "npm run stylelint"
     ]
   }
 }
