@@ -1,5 +1,5 @@
 import { type Ref, isRef, onMounted, onUnmounted, unref, watch } from 'vue'
-import isBrowser from '../../utils/isBrowser'
+import isBrowser from '../utils/isBrowser'
 
 export interface useTitleOption {
   restoreOnUnmount: boolean
