@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { demoReg2, markdownWarningReg } from '../common'
+import { demoReg2, getContentFromPath, markdownWarningReg } from '../common'
 import { replaceUtil } from '../utils'
 import { getImportName } from '../getNameFromPath'
 
@@ -11,8 +11,13 @@ export const genComponent = (content: string, id: string) => {
     const fromPath = path.resolve('src', path.dirname(id), absPath)
     const importName = `${getImportName(fromPath)}${index}`
     const importStr = `import ${importName} from '${fromPath}'`
+    const demoImport = path.resolve('src', 'template', 'vue', 'components', 'demo', 'index.vue')
+    if (importList.length === 0) {
+      importList.push(`import Demo from '${demoImport}'`)
+    }
     importList.push(importStr)
-    return `<div><${importName}/></div>`
+    const codeContent = getContentFromPath(fromPath)
+    return `<Demo code='${codeContent}'><${importName}/></Demo>`
   })
   const warningText = replaceUtil(markdownWarningReg, newContent, ({ subStr, index }) => {
     // const [dots, warningType, content] = subStr.match(markdownWarningReg)
