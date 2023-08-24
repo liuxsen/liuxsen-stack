@@ -1,17 +1,13 @@
 import type { PluginOption } from 'vite'
-import { markdown } from './markdown'
-import { genComponent } from './genComponent'
+import { genVueSFC } from './vue/genVueSFC'
+import { genReactComponent } from './react/genReactComponent'
 
-const contentLoader = (code: string, filePath: string) => {
-  const content = markdown.render(code)
-  const { template, importStr } = genComponent(content, filePath)
-  return `<template><div>${template}</div></template>
-          <script setup>
-            ${importStr}
-          </script>
-        `
+export interface MdPluginOption {
+  // 使用的技术栈
+  frameWork: 'vue' | 'react'
 }
-const mdPlugin: () => PluginOption = () => {
+
+const mdPlugin: (options?: MdPluginOption) => PluginOption = () => {
   return {
     name: 'md-plugin',
     resolveId(id: string) {
@@ -20,8 +16,10 @@ const mdPlugin: () => PluginOption = () => {
     },
     transform(code, id) {
       if (id.endsWith('.md')) {
-        console.log(id)
-        return contentLoader(code, id)
+        return genVueSFC(code, id)
+      }
+      if (id.endsWith('.mdx')) {
+        return genReactComponent(code, id)
       }
     },
     handleHotUpdate(ctx) {
@@ -29,7 +27,14 @@ const mdPlugin: () => PluginOption = () => {
         const defaultRead = ctx.read
         ctx.read = async () => {
           const content = await defaultRead()
-          return contentLoader(content, ctx.file)
+          return genVueSFC(content, ctx.file)
+        }
+      }
+      if (ctx.file.endsWith('.mdx')) {
+        const defaultRead = ctx.read
+        ctx.read = async () => {
+          const content = await defaultRead()
+          return genReactComponent(content, ctx.file)
         }
       }
     },

@@ -1,7 +1,7 @@
 import path from 'node:path'
-import { demoReg2 } from './common'
-import { replaceUtil } from './utils'
-import { getImportName } from './getNameFromPath'
+import { demoReg2 } from '../common'
+import { replaceUtil } from '../utils'
+import { getImportName } from '../getNameFromPath'
 
 export const genComponent = (content: string, id: string) => {
   const importList = []
