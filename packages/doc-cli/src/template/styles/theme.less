@@ -1,0 +1,72 @@
+@import url("./var.less");
+@import url("./reset.less");
+
+body {
+  background-color: rgb(255 255 255/100%);
+}
+
+
+/**  layout  **/
+.doc-layout-default {
+  font-family: RoobertPRO,"RoobertPRO override",sans-serif;;
+
+  /**  header  **/
+  .doc-layout-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .doc-layout-wrapper {
+    display: flex;
+  }
+  .doc-layout-sidebar {
+    width: 250px;
+    padding: 20px;
+    border-right: 1px solid var(--border-color);
+  }
+  .doc-layout-content {
+    flex: 1;
+    .doc-cli-markdown-type {
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+    .doc-cli-markdown-warning {
+      color: #fff;
+      background-color: rgb(218 0 0);
+      border: 1px solid rgb(138 0 0);
+    }
+    .doc-cli-markdown-success {
+      color: #fff;
+      background-color: rgb(75 154 0);
+      border: 1px solid rgb(63 131 0);
+    }
+    .doc-cli-markdown-tips {
+      background-color: rgb(222 248 255);
+      border: 1px solid rgb(172 172 172);
+    }
+
+    padding: 20px;
+    blockquote {
+      margin: 0;
+
+    }
+    h1 {
+      margin: 0 0 2rem;
+    }
+    h2,h3,h4,h5,h6 {
+      margin: 3rem 0 2rem;
+    }
+    pre {
+      padding: 16px;
+      line-height: 1.625;
+      background-color: #F4F4F5;
+      border: 1px solid #E4E4E7;
+      border-radius: 0.5rem;
+    }
+    p {
+      margin: 18px 0;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+}

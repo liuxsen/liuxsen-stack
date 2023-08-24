@@ -21,7 +21,7 @@ export const genReactComponent = (sourceCode: string, id: string) => {
     import React from 'react';
     ${importList.join('\n')}
     export default () => {
-      return <div>${newContent}</div>
+      return <div className="doc-cli">${newContent}</div>
     }
   `
   const { code } = esbuild.transformSync(template, {
