@@ -16,7 +16,27 @@ asdf
 
 ## 配置vscode自动修复
 
+```js
+const name = "foo"
+```
+
+```css
+.color {
+  color: red
+}
+```
+
+```html
+<template>
+<button></button>
+</template>
+<script setup>
+  const name = "name"
+</script>
+```
+
 在 settings.json 中粘贴如下配置
+
 
 ```json
 {

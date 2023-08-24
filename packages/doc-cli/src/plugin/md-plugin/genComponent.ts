@@ -4,7 +4,6 @@ import { replaceUtil } from './utils'
 import { getImportName } from './getNameFromPath'
 
 export const genComponent = (content: string, id: string) => {
-  console.log(content)
   const importList = []
   const newContent = replaceUtil(demoReg2, content, ({ subStr, index }) => {
     const match = subStr.match(demoReg2)
@@ -15,7 +14,6 @@ export const genComponent = (content: string, id: string) => {
     importList.push(importStr)
     return `<div><${importName}/></div>`
   })
-  console.log(newContent)
   return {
     template: newContent,
     importStr: importList.join('\n'),
