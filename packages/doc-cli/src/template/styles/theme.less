@@ -8,7 +8,10 @@ body {
 
 /**  layout  **/
 .doc-layout-default {
-  font-family: RoobertPRO,"RoobertPRO override",sans-serif;;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: RoobertPRO,"RoobertPRO override",sans-serif;
 
   /**  header  **/
   .doc-layout-header {
@@ -17,6 +20,7 @@ body {
   }
   .doc-layout-wrapper {
     display: flex;
+    flex: 1;
   }
   .doc-layout-sidebar {
     width: 250px;

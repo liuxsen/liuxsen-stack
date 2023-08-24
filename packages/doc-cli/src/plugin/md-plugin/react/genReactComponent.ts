@@ -1,7 +1,7 @@
 import path from 'node:path'
 import esbuild from 'esbuild'
 import { replaceUtil } from '../utils'
-import { demoReg2 } from '../common'
+import { demoReg2, markdownWarningReg } from '../common'
 import { getImportName } from '../getNameFromPath'
 import { markdown } from '../markdown'
 
@@ -17,11 +17,18 @@ export const genReactComponent = (sourceCode: string, id: string) => {
     importList.push(importStr)
     return `<div><${importName}/></div>`
   })
+
+  const warningText = replaceUtil(markdownWarningReg, newContent, ({ subStr, index }) => {
+    // const [dots, warningType, content] = subStr.match(markdownWarningReg)
+    const [_, dots, type, content] = subStr.match(markdownWarningReg)
+    return `<p class="doc-cli-markdown-type doc-cli-markdown-${type}">
+      ${content}</p>`
+  })
   const template = `
     import React from 'react';
     ${importList.join('\n')}
     export default () => {
-      return <div className="doc-cli">${newContent}</div>
+      return <div className="doc-cli">${warningText}</div>
     }
   `
   const { code } = esbuild.transformSync(template, {
