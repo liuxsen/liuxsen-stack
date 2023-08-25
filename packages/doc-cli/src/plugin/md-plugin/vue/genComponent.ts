@@ -4,9 +4,9 @@ import { replaceUtil } from '../utils'
 import { getImportName } from '../getNameFromPath'
 
 export const genComponent = (content: string, id: string) => {
-  const importList = []
+  const importList: string[] = []
   const newContent = replaceUtil(demoReg2, content, ({ subStr, index }) => {
-    const match = subStr.match(demoReg2)
+    const match = subStr.match(demoReg2)!
     const absPath = match[1]
     const fromPath = path.resolve('src', path.dirname(id), absPath)
     const importName = `${getImportName(fromPath)}${index}`
@@ -19,9 +19,9 @@ export const genComponent = (content: string, id: string) => {
     const codeContent = getContentFromPath(fromPath)
     return `<Demo code='${codeContent}'><${importName}/></Demo>`
   })
-  const warningText = replaceUtil(markdownWarningReg, newContent, ({ subStr, index }) => {
+  const warningText = replaceUtil(markdownWarningReg, newContent, ({ subStr }) => {
     // const [dots, warningType, content] = subStr.match(markdownWarningReg)
-    const [_, dots, type, content] = subStr.match(markdownWarningReg)
+    const [_, __, type, content] = subStr.match(markdownWarningReg)!
     return `<p class="doc-cli-markdown-type doc-cli-markdown-${type}">
       ${content}</p>`
   })

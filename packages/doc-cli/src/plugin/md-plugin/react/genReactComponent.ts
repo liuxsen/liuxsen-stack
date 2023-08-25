@@ -8,9 +8,9 @@ import { markdown } from '../markdown'
 
 export const genReactComponent = (sourceCode: string, id: string) => {
   const renderCode = markdown.render(sourceCode)
-  const importList = []
+  const importList: string[] = []
   const newContent = replaceUtil(demoReg2, renderCode, ({ subStr, index }) => {
-    const match = subStr.match(demoReg2)
+    const match = subStr.match(demoReg2)!
     const absPath = match[1]
     const fromPath = path.resolve('src', path.dirname(id), absPath)
     console.log(fromPath)
@@ -23,9 +23,9 @@ export const genReactComponent = (sourceCode: string, id: string) => {
     return `<div><Demo code="${codeContent}"><${importName}/></Demo></div>`
   })
 
-  const warningText = replaceUtil(markdownWarningReg, newContent, ({ subStr, index }) => {
+  const warningText = replaceUtil(markdownWarningReg, newContent, ({ subStr }) => {
     // const [dots, warningType, content] = subStr.match(markdownWarningReg)
-    const [_, dots, type, content] = subStr.match(markdownWarningReg)
+    const [_, __, type, content] = subStr.match(markdownWarningReg)!
     return `<p class="doc-cli-markdown-type doc-cli-markdown-${type}">
       ${content}</p>`
   })
