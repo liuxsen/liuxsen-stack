@@ -19,7 +19,6 @@
     "lint": "npx lint-staged"
   },
   "devDependencies": {
-    "@types/inquirer": "9.0.3",
     "@types/node": "20.5.0",
     "@types/yargs": "17.0.24",
     "copy-dir": "1.3.0",

@@ -5,13 +5,13 @@
     // 当 useDefineForClassFields 设置为 true 时，TypeScript 编译器会使用 Object.defineProperty 方法来定义类字段。这种方式可以提供更高级的控制和特性，
     "useDefineForClassFields": true,
     // 指定模块的生成规范，这里设置为 "ESNext"。
-    "module": "ESNext",
+    "module": "CommonJS",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     "outDir": "./dist",
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    // "moduleResolution": "bundler",
     // "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -19,19 +19,23 @@
     "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "dist/types",
+    "esModuleInterop": true,
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "noFallthroughCasesInSwitch": true
     // typings
-    "typeRoots": [
-      "./typings"
-    ]
+    // "typeRoots": [
+    //   "./typings"
+    // ]
   },
   "include": [
     "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue",
     "vite.config.ts", "vue.env.d.ts", "global.d.ts"
+  ],
+  "exclude": [
+    "src/template"
   ]
   // "references": [{ "path": "./tsconfig.node.json" }]
 }

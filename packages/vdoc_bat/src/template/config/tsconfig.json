@@ -11,27 +11,31 @@
     "outDir": "./dist",
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    // "moduleResolution": "bundler",
     // "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
+    // "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
     "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "dist/types",
+    "esModuleInterop": true,
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "noFallthroughCasesInSwitch": true
     // typings
-    "typeRoots": [
-      "./typings"
-    ]
+    // "typeRoots": [
+    //   "./typings"
+    // ]
   },
   "include": [
     "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue",
     "vite.config.ts", "vue.env.d.ts", "global.d.ts"
+  ],
+  "exclude": [
+    "src/template"
   ]
   // "references": [{ "path": "./tsconfig.node.json" }]
 }

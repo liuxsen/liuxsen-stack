@@ -6,9 +6,12 @@
   "author": "",
   "license": "ISC",
   "main": "index.js",
+  "bin": "./dist/src/bin/index.js",
   "scripts": {
     "vite:dev": "vite",
-    "dev": "ts-node --esm --experimental-specifier-resolution=node src/bin/index.ts"
+    "dev": "ts-node --esm --experimental-specifier-resolution=node src/bin/index.ts",
+    "cli:dev": "node --experimental-specifier-resolution=node dist/src/bin/index.js",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/fs-extra": "11.0.1",
